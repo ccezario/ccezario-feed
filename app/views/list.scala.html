@@ -1,0 +1,41 @@
+@(list: java.util.List[helpers.Alchemy.Data.DataNews])
+@main {
+
+@if(flash.containsKey("success")) {
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">@flash.get("success")
+          </span>
+        </div>
+    </div>
+</div>
+}
+
+<div class="section">
+    <div class="row">
+        @for((data, index) <- list.zipWithIndex) {
+            @if(index%3==0){
+                </div>
+                <div class="row">
+            }
+            <div class="col s12 m12 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <a href="@data.getUrl()">
+                            <img src="@data.getImage" class="responsive-img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <a href="@data.getUrl()">
+                            <span class="card-title activator brown-text text-darken-4 truncate">
+                                @data.getTitle()
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+        
+}

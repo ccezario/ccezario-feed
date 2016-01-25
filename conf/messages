@@ -1,0 +1,4 @@
+# Messages
+signup.error.registered_user=This e-mail is already registered.
+signup.error.passwords_not_same=The password and the confirmation does not match.
+categories.error.select_this_field=Select this category to input a tag.

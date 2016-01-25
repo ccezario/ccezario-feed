@@ -1,0 +1,262 @@
+@(form: Form[models.forms.Categories])
+
+@main{
+<div id="breadcrumbs-wrapper" >
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <ol class="breadcrumb">
+                    <li><a href="@routes.Feed.list()">Home</a></li>
+                    <li class="active">Settings</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s6">
+    <div class="card-panel">
+<div id="input-switches" class="section">
+    <div class="row">
+        <h4 class="header">Settings</h4>
+        <h6>Select your preferred topics, so we can update your feed (in the tags fields, use , (comma) to separate the keywords)</h6>
+    </div>
+    @if( form.hasGlobalErrors ) {
+    <div class="card grey lighten-3 error-message">
+        <div class="card-content red-text darken-3">
+            <p class="no-padding really-center">@form.globalError.message</p>
+        </div>
+    </div>
+    }
+    @helper.form(routes.Settings.post) {
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="cars" name="cars" @if(form("cars").value.equals("true")){ value="on" checked}/>
+            <label for="cars">Cars</label>
+            <input type='hidden' value='0' name='cars'>
+            @for(error <- form("cars").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="cars_tags" name="cars_tags" type="text" value="@form("cars_tags").value" class="validate">
+            <label for="cars_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="economy" name="economy" @if(form("economy").value.equals("true")){ value="on" checked}/>
+            <label for="economy">Economy</label>
+            <input type='hidden' value='0' name='economy'>
+            @for(error <- form("economy").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="economy_tags" name="economy_tags" type="text" value="@form("economy_tags").value" class="validate">
+            <label for="economy_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="education" name="education" @if(form("education").value.equals("true")){ value="on" checked}/>
+            <label for="education">Education</label>
+            <input type='hidden' value='0' name='education'>
+            @for(error <- form("education").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="education_tags" name="education_tags" type="text" value="@form("education_tags").value" class="validate">
+            <label for="education_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="foods" name="foods" @if(form("foods").value.equals("true")){ value="on" checked}/>
+            <label for="foods">Foods</label>
+            <input type='hidden' value='0' name='foods'>
+            @for(error <- form("foods").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="foods_tags" name="foods_tags" type="text" value="@form("foods_tags").value" class="validate">
+            <label for="foods_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="games" name="games" @if(form("games").value.equals("true")){ value="on" checked}/>
+            <label for="games">Games</label>
+            <input type='hidden' value='0' name='games'>
+            @for(error <- form("games").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="games_tags" name="games_tags" type="text" value="@form("games_tags").value" class="validate">
+            <label for="games_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="movies" name="movies" @if(form("movies").value.equals("true")){ value="on" checked}/>
+            <label for="movies">Movies</label>
+            <input type='hidden' value='0' name='movies'>
+            @for(error <- form("movies").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="movies_tags" name="movies_tags" type="text" value="@form("movies_tags").value" class="validate">
+            <label for="movies_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="music" name="music" @if(form("music").value.equals("true")){ value="on" checked}/>
+            <label for="music">Music</label>
+            <input type='hidden' value='0' name='music'>
+            @for(error <- form("music").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="music_tags" name="music_tags" type="text" value="@form("music_tags").value" class="validate">
+            <label for="music_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="people" name="people" @if(form("people").value.equals("true")){ value="on" checked}/>
+            <label for="people">People</label>
+            <input type='hidden' value='0' name='people'>
+            @for(error <- form("people").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="people_tags" name="people_tags" type="text" value="@form("people_tags").value" class="validate">
+            <label for="people_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="places" name="places" @if(form("places").value.equals("true")){ value="on" checked}/>
+            <label for="places">Places</label>
+            <input type='hidden' value='0' name='places'>
+            @for(error <- form("places").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="places_tags" name="places_tags" type="text" value="@form("places_tags").value" class="validate">
+            <label for="places_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="politics" name="politics" @if(form("politics").value.equals("true")){ value="on" checked}/>
+            <label for="politics">Politics</label>
+            <input type='hidden' value='0' name='politics'>
+            @for(error <- form("politics").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="politics_tags" name="politics_tags" type="text" value="@form("politics_tags").value" class="validate">
+            <label for="politics_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="sports" name="sports" @if(form("sports").value.equals("true")){ value="on" checked}/>
+            <label for="sports">Sports</label>
+            <input type='hidden' value='0' name='sports'>
+            @for(error <- form("sports").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="sports_tags" name="sports_tags" type="text" value="@form("sports_tags").value" class="validate">
+            <label for="sports_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="tech" name="tech" @if(form("tech").value.equals("true")){ value="on" checked}/>
+            <label for="tech">Tech</label>
+            <input type='hidden' value='0' name='tech'>
+            @for(error <- form("tech").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="tech_tags" name="tech_tags" type="text" value="@form("tech_tags").value" class="validate">
+            <label for="tech_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="transportation" name="transportation" @if(form("transportation").value.equals("true")){ value="on" checked}/>
+            <label for="transportation">Transportation</label>
+            <input type='hidden' value='0' name='transportation'>
+            @for(error <- form("transportation").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="transportation_tags" name="transportation_tags" value="@form("transportation_tags").value" type="text" class="validate">
+            <label for="transportation_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="travel" name="travel" @if(form("travel").value.equals("true")){ value="on" checked}/>
+            <label for="travel">Travel</label>
+            <input type='hidden' value='0' name='travel'>
+            @for(error <- form("travel").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="travel_tags" name="travel_tags" type="text" value="@form("travel_tags").value" class="validate">
+            <label for="travel_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="tv" name="tv" @if(form("tv").value.equals("true")){ value="on" checked}/>
+            <label for="tv">Tv</label>
+            <input type='hidden' value='0' name='tv'>
+            @for(error <- form("tv").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="tv_tags" name="tv_tags" type="text" value="@form("tv_tags").value" class="validate">
+            <label for="tv_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input type="checkbox" class="filled-in" id="weather" name="weather" @if(form("weather").value.equals("true")){ value="on" checked}/>
+            <label for="weather">Weather</label>
+            <input type='hidden' value="0" name='weather'>
+            @for(error <- form("weather").errors) {
+            <span class="red-text accent-4">@Messages(error.message)</span>
+            }
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="Type your keywords..." id="weather_tags" name="weather_tags" type="text" value="@form("weather_tags").value" class="validate">
+            <label for="weather_tags">Tags</label>
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn waves-effect waves-light">Submit</button>
+    </div>
+    }
+</div>
+        </div>
+    </div>
+}

@@ -1,0 +1,55 @@
+@(content: Html)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feed</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="@routes.Assets.at("js/scripts.js")"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("css/custom.css")">
+    </head>
+    <body class="white loaded">
+
+        <header>
+            <div class="navbar-fixed">
+                <nav class="#c62828 red darken-3" role="navigation">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                            <a href="@routes.Feed.list()" class="brand-logo">
+                                <span class="white-text">MyNewsFeed</span>
+                            </a>
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li>
+                                    <a href="@routes.Settings.configure()">
+                                        <span class="white-text">
+                                            Settings
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@routes.Application.logout()">
+                                        <span class="white-text">
+                                            Logout
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <div class="container">
+                @content
+            </div>
+        </main>
+        
+    </body>
+</html>

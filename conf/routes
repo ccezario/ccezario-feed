@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the computer list
+GET     /                           controllers.Feed.list()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Authetication
+GET     /login                 controllers.Application.login()
+GET     /logout                controllers.Application.logout()
+POST    /login                 controllers.Application.authenticate()
+GET     /signup                controllers.Application.signUpGet()
+POST    /signup                controllers.Application.signUpPost()
+
+# Settings
+GET     /settings              controllers.Settings.configure()
+POST    /settings              controllers.Settings.post()
